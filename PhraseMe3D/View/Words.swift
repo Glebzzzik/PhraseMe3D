@@ -8,15 +8,32 @@
 import SwiftUI
 
 struct Words: View {
+    
+    let li: [String] = ["brake down", "sosi", "1", "1"]
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false ) {
                 VStack(spacing: 20) {
-                    ForEach(0..<20) {i in
-                        Text("Aboba").padding().background(Color.red).frame(maxWidth: .infinity)
+                    ForEach(0..<li.count) {i in
+                        //                        Text("Aboba \(i + 1)")
+                        Button {
+                            print(5)
+                        } label: {
+                            Text("\(li[i])")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.leading)
+                                .font(.system(size: 14))
+                                .foregroundColor(Color("Brown"))
+                                .frame(height: 44)
+                                .background(Color.white)
+                                .cornerRadius(22)
+                                .multilineTextAlignment(.leading)
+                        }
                     }
                 }
             }
+            .padding(.horizontal, 16)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("Yellow").ignoresSafeArea())
             .navigationTitle("Words")
@@ -40,11 +57,11 @@ extension View {
     @available(iOS 14, *)
     func navigationBarTitleTextColor(_ color: Color) -> some View {
         let uiColor = UIColor(color)
-    
+        
         // Set appearance for both normal and large sizes.
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: uiColor ]
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: uiColor ]
-    
+        
         return self
     }
     
@@ -53,7 +70,7 @@ extension View {
         UINavigationBar.appearance().barTintColor = UIColor(color.opacity(1))
         UINavigationBar.appearance().backgroundColor = UIColor(color)
         UINavigationBar.appearance().shadowImage = UIImage()
-    
+        
         return self
     }
 }
