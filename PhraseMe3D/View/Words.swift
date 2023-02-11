@@ -9,27 +9,34 @@ import SwiftUI
 
 struct Words: View {
     
-    let li: [String] = ["brake down", "sosi", "1", "1"]
+    let li: [String] = ["Look up", "Work out", "1", "1"]
+    @State private var isPresentedARScreen = false
+    
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false ) {
                 VStack(spacing: 20) {
-                    ForEach(0..<li.count) {i in
-                        //                        Text("Aboba \(i + 1)")
-                        Button {
-                            print(5)
-                        } label: {
-                            Text("\(li[i])")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading)
-                                .font(.system(size: 14))
-                                .foregroundColor(Color("Brown"))
-                                .frame(height: 44)
-                                .background(Color.white)
-                                .cornerRadius(22)
-                                .multilineTextAlignment(.leading)
+                    ForEach(0..<li.count, id: \.self) {i in
+                        
+                        NavigationLink(destination: ARScreen()) {
+                            HStack() {
+                                Text("\(li[i])")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading)
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Color("Brown"))
+                                    .frame(height: 44)
+                                    .cornerRadius(22)
+                                    .multilineTextAlignment(.leading)
+                                Image("Arrow").padding(.trailing)
+                            }
+                            .background(Color.white)
+                            .cornerRadius(22)
+                            
                         }
+                        
+                        
                     }
                 }
             }
