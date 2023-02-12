@@ -31,14 +31,24 @@ struct SignIn: View {
             Spacer()
             
             VStack(spacing: 20) {
-                CustomButton(type: .white, title: "Sign In") {
+                CustomButton(
+                    model: CustomButton.Model(
+                        type: .white,
+                        title: "Sign In"
+                    )
+                ) {
                     // действие по тапу на кнопку
                 }
                 
-                CustomButton(type: .transparent, title: "Sign Up") {
-                    // действие по тапу на кнопку
+                CustomButton(
+                    model: CustomButton.Model(
+                        type: .transparent,
+                        title: "Sign Up"
+                    )
+                ) {
                     isPresentedSignUp = true
-                }.fullScreenCover(isPresented: $isPresentedSignUp) {
+                }
+                .fullScreenCover(isPresented: $isPresentedSignUp) {
                     SignUp()
                 }
             }

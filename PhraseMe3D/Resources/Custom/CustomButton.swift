@@ -10,8 +10,7 @@ import SwiftUI
 struct CustomButton: View {
     
     // MARK: - Properties
-    let type: CustomButtonType
-    let title: String
+    let model: CustomButton.Model
     var action: () -> Void
     
     // MARK: - Body
@@ -19,25 +18,46 @@ struct CustomButton: View {
         Button {
             action()
         } label: {
-            Text(title)
-                .font(.system(size: 14))
-                .foregroundColor(Color("Brown"))
-                .frame(maxWidth: .infinity)
-                .frame(height: 44)
-                .background(type == .white ? .white : .clear)
-                .cornerRadius(4)
-                .overlay(border())
+            HStack {
+                Text(model.title)
+                    .font(.system(size: 14))
+                    .foregroundColor(Color("Brown"))
+                
+                arrowIfNeededView()
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .padding(.horizontal)
+        .frame(maxWidth: .infinity)
+        .frame(height: 44)
+        .background(model.type == .white ? .white : .clear)
+        .cornerRadius(model.cornerRadius)
+        .overlay(border())
     }
     
     @ViewBuilder
     private func border() -> some View {
-        if type == .transparent {
+        if model.type == .transparent {
             RoundedRectangle(cornerRadius: 4)
                 .stroke(lineWidth: 1)
                 .foregroundColor(Color("Brown"))
         }
     }
+    
+    @ViewBuilder
+    private func arrowIfNeededView() -> some View {
+        if model.showArrow {
+            Spacer()
+            Image("Arrow")
+        }
+    }
 }
 
-
+extension CustomButton {
+    struct Model {
+        let type: CustomButtonType
+        let title: String
+        var cornerRadius: CGFloat = 4.0
+        var showArrow: Bool = false
+    }
+}

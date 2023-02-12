@@ -36,14 +36,24 @@ struct SignUp: View {
             Spacer()
             
             VStack(spacing: 20) {
-                CustomButton(type: .white, title: "Sign Up") {
+                CustomButton(
+                    model: CustomButton.Model(
+                        type: .white,
+                        title: "Sign Up"
+                    )
+                ) {
                     // действие по тапу на кнопку
                 }
                 
-                CustomButton(type: .transparent, title: "I already have an account") {
-                    // действие по тапу на кнопку
+                CustomButton(
+                    model: CustomButton.Model(
+                        type: .transparent,
+                        title: "I already have an account"
+                    )
+                ) {
                     isPresentedSignIn.toggle()
-                }.fullScreenCover(isPresented: $isPresentedSignIn) {
+                }
+                .fullScreenCover(isPresented: $isPresentedSignIn) {
                     SignIn()
                 }
             }

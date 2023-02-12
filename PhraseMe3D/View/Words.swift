@@ -17,26 +17,26 @@ struct Words: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false ) {
                 VStack(spacing: 20) {
-                    ForEach(0..<li.count, id: \.self) {i in
+                    ForEach(0..<li.count, id: \.self) { i in
                         
-                        NavigationLink(destination: ARScreen()) {
-                            HStack() {
-                                Text("\(li[i])")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading)
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color("Brown"))
-                                    .frame(height: 44)
-                                    .cornerRadius(22)
-                                    .multilineTextAlignment(.leading)
-                                Image("Arrow").padding(.trailing)
-                            }
-                            .background(Color.white)
-                            .cornerRadius(22)
-                            
+                        CustomButton(
+                            model: CustomButton.Model(
+                                type: .white,
+                                title: "\(li[i])",
+                                cornerRadius: 22,
+                                showArrow: true
+                            )
+                        ) {
+                            // действие по тапу на кнопку
+                            isPresentedARScreen.toggle()
                         }
-                        
-                        
+                        .background {
+                            NavigationLink(isActive: $isPresentedARScreen) {
+                                ARScreen()
+                            } label: {
+                                EmptyView()
+                            }
+                        }
                     }
                 }
             }
