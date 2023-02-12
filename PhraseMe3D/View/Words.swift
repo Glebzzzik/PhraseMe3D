@@ -28,6 +28,7 @@ struct Words: View {
                             )
                         ) {
                             // действие по тапу на кнопку
+                            
                             isPresentedARScreen.toggle()
                         }
                         .background {
