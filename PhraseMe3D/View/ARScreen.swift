@@ -10,24 +10,38 @@ import RealityKit
 import ARKit
 import FocusEntity
 
+
 struct ARScreen : View {
     
     @State private var isPlacementEnabled = false
-    @State private var selectedModel: String?
+    @State private var selectedModel = "robot_walk_idle.usdz"//: String?
     @State private var modelComfiredForPlacement: String?
     
     var models = ["tv_retro", "robot_walk_idle"]
     
+    init() {
+        let navBarAppearance = UINavigationController()
+        navBarAppearance.navigationBar.largeTitleTextAttributes=[NSAttributedString.Key.foregroundColor:
+        UIColor.white]
+        
+    }
+    
+    
     var body: some View {
-        ZStack(alignment: .bottom) {
-            ARViewContainer(modelConfirmedForPlacement: self.$modelComfiredForPlacement)
-            
-            if self.isPlacementEnabled {
-                PlacementButtonView(isPlacementEnabled: self.$isPlacementEnabled, selectedModel: self.$selectedModel, modelComfirmedForPlacement: self.$modelComfiredForPlacement)
-            } else {
-                ModelPickerView(isPlacementEnabled: self.$isPlacementEnabled, selectedModel: self.$selectedModel, models: self.models)
-            }
-        }
+        NavigationView {
+            ZStack(alignment: .bottom) {
+                ARViewContainer(modelConfirmedForPlacement: self.$modelComfiredForPlacement)
+                
+                //            if self.isPlacementEnabled {
+                PlacementButtonView(isPlacementEnabled: self.$isPlacementEnabled, selectedModel: self.selectedModel, modelComfirmedForPlacement: self.$modelComfiredForPlacement)
+                //            } else {
+                //                ModelPickerView(isPlacementEnabled: self.$isPlacementEnabled, selectedModel: self.$selectedModel, models: self.models)
+                //            }
+            }.background(Color("Yellow").ignoresSafeArea())
+        }.navigationBarTitle("", displayMode: .inline)
+        
+        
+        
     }
     
     struct ARViewContainer: UIViewRepresentable {
@@ -49,7 +63,7 @@ struct ARScreen : View {
                 print("Debug: adding model to scene")
                 
                 let fileName = modelName + ".usdz"
-//                let modelEntity = try! ModelEntity.loadModel(named: fileName)
+                //                let modelEntity = try! ModelEntity.loadModel(named: fileName)
                 let modelEntity = try! ModelEntity.loadModel(named: "robot_walk_idle")
                 
                 let anchorEntity = AnchorEntity(plane: .any)
@@ -93,77 +107,49 @@ struct ARScreen : View {
             fatalError("init(coder:) has not been implemented")
         }
     }
-
-
     
-    struct ModelPickerView: View {
-        
-        @Binding var isPlacementEnabled: Bool
-        @Binding var selectedModel: String?
-        
-        var models : [String]
-        
-        var body: some View {
-            ScrollView(.horizontal, showsIndicators: false) {
-                ForEach(0 ..< self.models.count) { index in
-                    Button(action: {
-                        print("Debug: selected model \(self.models[index])")
-                        self.selectedModel = self.models[index]
-                        self.isPlacementEnabled = true
-                    }) {
-                        Image(uiImage: UIImage(named: self.models[index])!)
-                            .resizable()
-                            .frame(height: 80)
-                            .aspectRatio(1/1, contentMode: .fit)
-                    }.buttonStyle(PlainButtonStyle())
-                }
-            }
-            .padding(20)
-            .background(Color.black.opacity(0.5))
-        }
-        
-    }
+    
 }
 
 struct PlacementButtonView: View {
     
     @Binding var isPlacementEnabled: Bool
-    @Binding var selectedModel: String?
+    var selectedModel: String?
     @Binding var modelComfirmedForPlacement: String?
     
     var body: some View {
-        HStack {
-            Button(action: {
-                print("Debug: Cancel model")
-                self.resetPlacementParameters()
-            }) {
-                Image(systemName: "xmark")
-                    .frame(width: 60, height: 60)
-                    .font(.title)
-                    .background(Color.white.opacity(0.75))
-                    .cornerRadius(30)
-                    .padding(20)
-            }
-            
-            Button(action: {
-                print("Debug: Confirm model")
-                self.modelComfirmedForPlacement = self.selectedModel
-                self.resetPlacementParameters()
-            }) {
-                Image(systemName: "checkmark")
-                    .frame(width: 60, height: 60)
-                    .font(.title)
-                    .background(Color.white.opacity(0.75))
-                    .cornerRadius(30)
-                    .padding(20)
-            }
-            
+        
+        //            Button(action: {
+        //                print("Debug: Cancel model")
+        //                self.resetPlacementParameters()
+        //            }) {
+        //                Image(systemName: "xmark")
+        //                    .frame(width: 60, height: 60)
+        //                    .font(.title)
+        //                    .background(Color.white.opacity(0.75))
+        //                    .cornerRadius(30)
+        //                    .padding(20)
+        //            }
+        //
+        Button(action: {
+            print("Debug: Confirm model")
+            self.modelComfirmedForPlacement = self.selectedModel
+            //            self.resetPlacementParameters()
+        }) {
+            Image(systemName: "checkmark")
+                .frame(width: 60, height: 60)
+                .font(.title)
+                .background(Color.white.opacity(0.75))
+                .cornerRadius(30)
+                .padding(20)
         }
+        
+        
     }
-    func resetPlacementParameters() {
-        self.isPlacementEnabled = false
-        self.selectedModel = nil
-    }
+    //    func resetPlacementParameters() {
+    //        self.isPlacementEnabled = false
+    //        self.selectedModel = nil
+    //    }
 }
 
 #if DEBUG
