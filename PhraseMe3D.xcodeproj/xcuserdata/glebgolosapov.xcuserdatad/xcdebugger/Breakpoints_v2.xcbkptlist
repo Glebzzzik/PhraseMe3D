@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D8D8340C-3FA7-4C8E-A88A-70E52CBCB465"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEC4D126-5E18-4F1E-ACEE-AA31595AE2C8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhraseMe3D/ViewModel/SignUpViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "SignUpAction(email:password:username:con:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CEC4D126-5E18-4F1E-ACEE-AA31595AE2C8 - e9e7212b715e0828"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhraseMe3D.SignUpViewModel.SignUpAction(email: Swift.String, password: Swift.String, username: Swift.String, con: Swift.Optional&lt;(Swift.String, Swift.String) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PhraseMe3D"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/glebgolosapov/Desktop/PhraseMe3D/PhraseMe3D/ViewModel/SignUpViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "680">
+               </Location>
+               <Location
+                  uuid = "CEC4D126-5E18-4F1E-ACEE-AA31595AE2C8 - 307c76f880357ccb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in PhraseMe3D.SignUpViewModel.SignUpAction(email: Swift.String, password: Swift.String, username: Swift.String, con: Swift.Optional&lt;(Swift.String, Swift.String) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PhraseMe3D"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/glebgolosapov/Desktop/PhraseMe3D/PhraseMe3D/ViewModel/SignUpViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "284">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

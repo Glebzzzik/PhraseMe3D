@@ -11,7 +11,7 @@ import SwiftUI
 struct PhraseMe3DApp: App {
     var body: some Scene {
         WindowGroup {
-            Words()
+            SignIn()
         }
     }
 }

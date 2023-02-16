@@ -9,10 +9,16 @@ import SwiftUI
 
 struct SignIn: View {
     
+    @StateObject var SignInVM = SignInViewModel()
+    
     @State private var email = ""
     @State private var password = ""
     
+    @State var showAlert = false
+    @State var message = ""
+    
     @State private var isPresentedSignUp = false
+    @State private var isPresentedWords = false
     
     var body: some View {
         
@@ -37,8 +43,29 @@ struct SignIn: View {
                         title: "Sign In"
                     )
                 ) {
-                    // действие по тапу на кнопку
+                    if email != "" && password != "" {
+                        SignInVM.SignInAction(email: email, password: password) {answer, error in
+                            if answer != "" {
+                                print("POBEDA")
+                                isPresentedWords.toggle()
+                            } else if !error.isEmpty {
+                                message = "Неверный логин или пароль"
+                                showAlert.toggle()
+                            }
+                        }
+                    } else {
+                        message = "Заолните все поля"
+                        showAlert.toggle()
+                        
+                    }
                 }
+                .fullScreenCover(isPresented: $isPresentedWords) {
+                    Words()
+                }
+                .alert(isPresented: $showAlert, content: {
+                    Alert(title: Text("Ошибка"), message: Text(message), dismissButton: Alert.Button.default(Text("OK")))
+                    
+                })
                 
                 CustomButton(
                     model: CustomButton.Model(

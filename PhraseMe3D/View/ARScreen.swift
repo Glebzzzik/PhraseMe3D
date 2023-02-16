@@ -66,10 +66,10 @@ struct ARScreen : View {
                 //                let modelEntity = try! ModelEntity.loadModel(named: fileName)
                 let modelEntity = try! ModelEntity.loadModel(named: "robot_walk_idle")
                 
-                let anchorEntity = AnchorEntity(plane: .any)
-                anchorEntity.addChild(modelEntity)
+//                let anchorEntity = AnchorEntity(plane: .any)
+//                anchorEntity.addChild(modelEntity)
                 
-                uiView.scene.addAnchor(anchorEntity)
+//                uiView.scene.addAnchor(anchorEntity)
                 
                 DispatchQueue.main.async {
                     self.modelConfirmedForPlacement = nil

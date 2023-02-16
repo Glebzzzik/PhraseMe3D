@@ -9,7 +9,11 @@ import SwiftUI
 
 struct SignUp: View {
     
-    @State private var Login = ""
+    @StateObject var SignUpVM = SignUpViewModel()
+    @State var showAlert = false
+    @State var message = ""
+    
+    @State private var Username = ""
     @State private var Email = ""
     @State private var Password = ""
     @State private var RePassword = ""
@@ -24,7 +28,7 @@ struct SignUp: View {
             Spacer()
             
             VStack(spacing: 20) {
-                CustomTextField(placeholderText: "Login", text: $Login)
+                CustomTextField(placeholderText: "Username", text: $Username)
                 CustomTextField(placeholderText: "E-mail", text: $Email)
 
                 CustomTextField(placeholderText: "Password", isSecureField: true, text: $Password)
@@ -42,8 +46,36 @@ struct SignUp: View {
                         title: "Sign Up"
                     )
                 ) {
-                    // действие по тапу на кнопку
+                    if Email != "" && Password != "" && RePassword != "" && Username != "" {
+                        
+                        if Password != RePassword {
+                            message = "Passwords do not match"
+                            showAlert.toggle()
+                        } else {
+                            SignUpVM.SignUpAction(email: Email, password: Password, username: Username) {answer, error in
+                                if answer != "" {
+                                    print("POBEDA")
+                                    isPresentedSignIn.toggle()
+                                } else if !error.isEmpty {
+                                    message = "Неверный логин или пароль"
+                                    showAlert.toggle()
+                                }
+                            }
+                            
+                        }
+                        
+                    } else {
+                        message = "Fill the gaps"
+                        showAlert.toggle()
+                        
+                    }
+                }.fullScreenCover(isPresented: $isPresentedSignIn) {
+                    SignIn()
                 }
+                .alert(isPresented: $showAlert, content: {
+                    Alert(title: Text("Error"), message: Text(message), dismissButton: Alert.Button.default(Text("OK")))
+                    
+                })
                 
                 CustomButton(
                     model: CustomButton.Model(
