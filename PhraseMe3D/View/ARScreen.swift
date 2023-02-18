@@ -64,7 +64,7 @@ struct ARScreen : View {
                 
                 let fileName = modelName + ".usdz"
                 //                let modelEntity = try! ModelEntity.loadModel(named: fileName)
-                let modelEntity = try! ModelEntity.load(named: "robot_walk_idle")
+                let modelEntity = try! ModelEntity.load(named: "toy_drummer_idle")
 //                modelEntity.generateCollisionShapes(recursive: true)
                 
                 let anchorEntity = AnchorEntity(plane: .any)
