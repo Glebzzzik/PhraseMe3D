@@ -49,12 +49,12 @@ struct SignIn: View {
                                 print("POBEDA")
                                 isPresentedWords.toggle()
                             } else if !error.isEmpty {
-                                message = "Неверный логин или пароль"
+                                message = "Wrong email or password"
                                 showAlert.toggle()
                             }
                         }
                     } else {
-                        message = "Заолните все поля"
+                        message = "Fill the gaps"
                         showAlert.toggle()
                         
                     }
@@ -63,7 +63,7 @@ struct SignIn: View {
                     Words()
                 }
                 .alert(isPresented: $showAlert, content: {
-                    Alert(title: Text("Ошибка"), message: Text(message), dismissButton: Alert.Button.default(Text("OK")))
+                    Alert(title: Text("Error"), message: Text(message), dismissButton: Alert.Button.default(Text("OK")))
                     
                 })
                 
