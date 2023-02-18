@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//View для экрана со словами
 struct Words: View {
     
     let li: [String] = ["Look up", "Work out", "1", "1"]

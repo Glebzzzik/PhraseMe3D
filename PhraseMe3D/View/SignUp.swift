@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+//View для экрана регистрации
 struct SignUp: View {
     
     @StateObject var SignUpVM = SignUpViewModel()
