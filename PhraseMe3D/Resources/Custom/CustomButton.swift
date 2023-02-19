@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//кастомные кнопки
 struct CustomButton: View {
     
     // MARK: - Properties

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+//Кастомные поля для ввода
 struct CustomTextField: View {
     
     // MARK: - Properties

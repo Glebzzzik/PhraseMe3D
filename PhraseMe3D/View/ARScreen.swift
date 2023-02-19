@@ -62,10 +62,10 @@ struct ARScreen : View {
                 
                 let modelEntity = try! ModelEntity.load(named: "toy_drummer_idle")
                 
-                let anchorEntity = AnchorEntity(plane: .any)
-                anchorEntity.addChild(modelEntity)
+//                let anchorEntity = AnchorEntity(plane: .any)
+//                anchorEntity.addChild(modelEntity)
                 
-                uiView.scene.addAnchor(anchorEntity)
+//                uiView.scene.addAnchor(anchorEntity)
                 
                 modelEntity.playAnimation(modelEntity.availableAnimations[0].repeat(),
                                           transitionDuration: 0.5,

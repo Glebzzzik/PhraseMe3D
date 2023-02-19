@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4112674129A246810012AC28 /* WordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4112674029A246810012AC28 /* WordsViewModel.swift */; };
+		4112674329A255640012AC28 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4112674229A255640012AC28 /* Words.swift */; };
 		414F812B2998027600C31440 /* ARScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F812A2998027600C31440 /* ARScreen.swift */; };
 		414F812E2998298F00C31440 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 414F812D2998298F00C31440 /* FocusEntity */; };
 		414F813829982DDE00C31440 /* tv_retro.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 414F813629982DDE00C31440 /* tv_retro.usdz */; };
@@ -20,7 +22,6 @@
 		419B4705299D52F500FB6073 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 419B4704299D52F500FB6073 /* SwiftyJSON */; };
 		419B4709299D586D00FB6073 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 419B4708299D586D00FB6073 /* Alamofire */; };
 		419B470B299D64F100FB6073 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B470A299D64F100FB6073 /* SignUpViewModel.swift */; };
-		41B218232993ED8E0055CD19 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B218222993ED8E0055CD19 /* Words.swift */; };
 		41ECDE77298FCD8F00579E6E /* PhraseMe3DApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ECDE76298FCD8F00579E6E /* PhraseMe3DApp.swift */; };
 		41ECDE7B298FCD9000579E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41ECDE7A298FCD9000579E6E /* Assets.xcassets */; };
 		41ECDE7E298FCD9000579E6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41ECDE7D298FCD9000579E6E /* Preview Assets.xcassets */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4112674029A246810012AC28 /* WordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewModel.swift; sourceTree = "<group>"; };
+		4112674229A255640012AC28 /* Words.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Words.swift; path = ../../../../Downloads/PhraseMe3D/PhraseMe3D/View/Words.swift; sourceTree = "<group>"; };
 		414F812A2998027600C31440 /* ARScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScreen.swift; sourceTree = "<group>"; };
 		414F813629982DDE00C31440 /* tv_retro.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = tv_retro.usdz; path = ../../../Downloads/tv_retro.usdz; sourceTree = "<group>"; };
 		414F813729982DDE00C31440 /* robot_walk_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = robot_walk_idle.usdz; path = ../../../Downloads/robot_walk_idle.usdz; sourceTree = "<group>"; };
@@ -40,7 +43,6 @@
 		419B46FE299D517400FB6073 /* SingInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInViewModel.swift; sourceTree = "<group>"; };
 		419B4706299D56EE00FB6073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		419B470A299D64F100FB6073 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		41B218222993ED8E0055CD19 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		41ECDE73298FCD8F00579E6E /* PhraseMe3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhraseMe3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41ECDE76298FCD8F00579E6E /* PhraseMe3DApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseMe3DApp.swift; sourceTree = "<group>"; };
 		41ECDE7A298FCD9000579E6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				419B46FE299D517400FB6073 /* SingInViewModel.swift */,
 				419B470A299D64F100FB6073 /* SignUpViewModel.swift */,
+				4112674029A246810012AC28 /* WordsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -143,9 +146,9 @@
 		41ECDE85298FCDDE00579E6E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4112674229A255640012AC28 /* Words.swift */,
 				41ECDE8A298FD3E600579E6E /* SignIn.swift */,
 				416EF1202992874E00294208 /* SignUp.swift */,
-				41B218222993ED8E0055CD19 /* Words.swift */,
 				414F812A2998027600C31440 /* ARScreen.swift */,
 			);
 			path = View;
@@ -239,10 +242,11 @@
 				414F812B2998027600C31440 /* ARScreen.swift in Sources */,
 				41ECDE77298FCD8F00579E6E /* PhraseMe3DApp.swift in Sources */,
 				416EF1212992874E00294208 /* SignUp.swift in Sources */,
+				4112674129A246810012AC28 /* WordsViewModel.swift in Sources */,
 				419B470B299D64F100FB6073 /* SignUpViewModel.swift in Sources */,
 				418783C529A1691B0087A38F /* Model.swift in Sources */,
 				419B46FF299D517400FB6073 /* SingInViewModel.swift in Sources */,
-				41B218232993ED8E0055CD19 /* Words.swift in Sources */,
+				4112674329A255640012AC28 /* Words.swift in Sources */,
 				41ECDE8B298FD3E600579E6E /* SignIn.swift in Sources */,
 				416EF1262992A5AC00294208 /* CustomButton.swift in Sources */,
 			);

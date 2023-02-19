@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct PhrasalVerb: Hashable {
+    var word, wordId: String
+}

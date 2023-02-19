@@ -16,7 +16,7 @@ class SignInViewModel: ObservableObject{
     
 //    Функия для отправки запроса авторизации
     func SignInAction(email: String, password: String, con: ((_ result: String, _ error: String) -> Void )? = nil) {
-        let url = "http://localhost:8080/login/user?email=\(email)&password=\(password)"
+        let url = "http://95.165.105.133:1221/login/user?email=\(email)&password=\(password)"
         
         AF.request(url, method: .get).validate().responseString() { response in
             switch response.result{
